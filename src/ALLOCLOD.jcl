@@ -1,0 +1,6 @@
+//LOAD  DD DSN=IBMUSER.COBOL.LOAD,
+//         DISP=(NEW,CATLG,DELETE),
+//         UNIT=SYSALLDA,
+//         SPACE=(TRK,(5,5,10)),
+//         DSNTYPE=LIBRARY,
+//         DCB=(RECFM=U,BLKSIZE=32760)

@@ -1,0 +1,25 @@
+# Suggested interactive FTP commands.
+# Do not paste the comment lines if your FTP client dislikes comments.
+
+open 192.168.0.210
+user IBMUSER
+
+# If the PDS/PDSE data sets do not exist yet, submit ALLOC.jcl via JES:
+ascii
+quote site filetype=jes
+put ALLOC.jcl
+
+# Then switch back to normal data set upload mode:
+quote site filetype=seq
+ascii
+quote site recfm=fb lrecl=80 blksize=32720
+put HELLO.cbl 'IBMUSER.COBOL.SOURCE(HELLO)'
+put HELLOC.jcl 'IBMUSER.JCL(HELLOC)'
+put HELLOR.jcl 'IBMUSER.JCL(HELLOR)'
+
+# Optional: submit compile and run jobs directly via JES:
+quote site filetype=jes
+put HELLOC.jcl
+put HELLOR.jcl
+
+quit

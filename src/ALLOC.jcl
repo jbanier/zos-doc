@@ -1,0 +1,27 @@
+//ALLOC    JOB (ACCT),'ALLOC COBOL',CLASS=A,MSGCLASS=X,
+//             MSGLEVEL=(1,1),NOTIFY=&SYSUID
+//*
+//* OPTIONAL: SUBMIT ONLY IF THESE DATA SETS DO NOT EXIST YET.
+//*
+//ALLOC    EXEC PGM=IEFBR14
+//SRC      DD  DSN=IBMUSER.COBOL.SOURCE,
+//             DISP=(NEW,CATLG,DELETE),
+//             UNIT=SYSALLDA,
+//             SPACE=(TRK,(5,5,10)),
+//             DCB=(DSORG=PO,RECFM=FB,LRECL=80,BLKSIZE=32720)
+//OBJ      DD  DSN=IBMUSER.COBOL.OBJ,
+//             DISP=(NEW,CATLG,DELETE),
+//             UNIT=SYSALLDA,
+//             SPACE=(TRK,(5,5,10)),
+//             DCB=(DSORG=PO,RECFM=FB,LRECL=80,BLKSIZE=32720)
+//JCL      DD  DSN=IBMUSER.JCL,
+//             DISP=(NEW,CATLG,DELETE),
+//             UNIT=SYSALLDA,
+//             SPACE=(TRK,(5,5,10)),
+//             DCB=(DSORG=PO,RECFM=FB,LRECL=80,BLKSIZE=32720)
+//LOAD     DD  DSN=IBMUSER.COBOL.LOAD,
+//             DISP=(NEW,CATLG,DELETE),
+//             UNIT=SYSALLDA,
+//             SPACE=(TRK,(5,5,10)),
+//             DSNTYPE=LIBRARY,
+//             DCB=(RECFM=U,BLKSIZE=32760)
